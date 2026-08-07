@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c3de6qt44g3h8"]
+
+[ext_resource type="Script" uid="uid://3vtim3dgohyc" path="res://kira.gd" id="1_ywosr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1bc"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4kxuq"]
+size = Vector2(16, 16)
+
+[node name="kira" type="CharacterBody2D" unique_id=612997603]
+collision_layer = 7
+script = ExtResource("1_ywosr")
+HORIZONTAL_FLOAT_AMPLITUDE = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=321147017]
+shape = SubResource("RectangleShape2D_mm1bc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1778213043]
+texture = SubResource("PlaceholderTexture2D_4kxuq")
