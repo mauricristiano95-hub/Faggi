@@ -16,9 +16,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	$AnimationPlayer.play("candle_take")
-	candle_taken = true
-
+	if body.name == 'Player' and candle_taken == false:
+		body.get_node('stats').set_candles(body.get_node('stats').candles+1)
+		$AnimationPlayer.play("candle_take")
+		candle_taken = true
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'candle_take':

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3de6qt44g3h8"]
 
-[ext_resource type="Script" uid="uid://3vtim3dgohyc" path="res://kira.gd" id="1_ywosr"]
+[ext_resource type="Script" uid="uid://3vtim3dgohyc" path="res://NPCs/kira.gd" id="1_ywosr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1bc"]
 size = Vector2(16, 16)

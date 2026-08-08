@@ -44,3 +44,11 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.clamp(Vector2(-MAX_SPEED, -AIR_GRAVITY_FRICTION), Vector2(MAX_SPEED, AIR_GRAVITY_FRICTION))
 
 	move_and_slide()
+
+
+func _on_stats_full_candles() -> void:
+	print('All Candles Found')
+
+
+func _on_stats_no_health() -> void:
+	print('You are scared to death')

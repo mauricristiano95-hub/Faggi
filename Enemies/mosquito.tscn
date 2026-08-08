@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://i53pxs0pw71l"]
+[gd_scene format=3 uid="uid://cuhmyu2tbocpj"]
 
-[ext_resource type="Script" uid="uid://d2j0gn42h4ird" path="res://spider.gd" id="1_k3kcl"]
+[ext_resource type="Script" uid="uid://b5b7n1rxd0xt7" path="res://Enemies/mosquito.gd" id="1_nowlw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mti6b"]
 size = Vector2(16, 16)
@@ -10,10 +10,10 @@ radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
 
-[node name="Spider" type="CharacterBody2D" unique_id=1234232899]
+[node name="Mosquito" type="CharacterBody2D" unique_id=1234232899]
 collision_layer = 8
 collision_mask = 8
-script = ExtResource("1_k3kcl")
+script = ExtResource("1_nowlw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=172094063]
 texture = SubResource("PlaceholderTexture2D_mti6b")

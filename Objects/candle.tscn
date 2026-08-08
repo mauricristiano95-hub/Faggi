@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs3tcymubxgch"]
 
-[ext_resource type="Script" uid="uid://cciovbvbtu83l" path="res://node_2d.gd" id="1_tcgl6"]
+[ext_resource type="Script" uid="uid://cciovbvbtu83l" path="res://Objects/candle.gd" id="1_tcgl6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4kxuq"]
 size = Vector2(8, 8)

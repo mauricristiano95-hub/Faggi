@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://i53pxs0pw71l"]
+
+[ext_resource type="Script" uid="uid://d2j0gn42h4ird" path="res://Enemies/spider.gd" id="1_k3kcl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mti6b"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+
+[node name="Spider" type="CharacterBody2D" unique_id=1234232899]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_k3kcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=172094063]
+texture = SubResource("PlaceholderTexture2D_mti6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1892214934]
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1938170776]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=311807674]
+shape = SubResource("CircleShape2D_mti6b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
