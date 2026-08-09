@@ -29,6 +29,12 @@ func movement_input():
 	)
 	return input_vector
 
+func damage(hit_damage: float, enemy_pos: Vector2):
+	var backlash_direction = sign(enemy_pos-position)
+	velocity.x = -backlash_direction.x*1000
+	velocity.y = -200
+	$stats.set_health($stats.health-hit_damage)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	velocity.y += delta*GRAVITY
@@ -44,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.clamp(Vector2(-MAX_SPEED, -AIR_GRAVITY_FRICTION), Vector2(MAX_SPEED, AIR_GRAVITY_FRICTION))
 
 	move_and_slide()
-
 
 func _on_stats_full_candles() -> void:
 	print('All Candles Found')

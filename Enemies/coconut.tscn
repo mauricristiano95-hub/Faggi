@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://170olatexo37"]
+
+[ext_resource type="Script" uid="uid://dg2bsii73wp6e" path="res://Enemies/coconut.gd" id="1_81xxf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_81xxf"]
+friction = 0.2
+bounce = 0.4
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mti6b"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(32, 79.59655)
+
+[node name="Coconut" type="RigidBody2D" unique_id=1169915649]
+collision_layer = 8
+collision_mask = 10
+physics_material_override = SubResource("PhysicsMaterial_81xxf")
+center_of_mass_mode = 1
+center_of_mass = Vector2(1, 0)
+script = ExtResource("1_81xxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=172094063]
+texture = SubResource("PlaceholderTexture2D_mti6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1892214934]
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1938170776]
+collision_layer = 10
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=311807674]
+shape = SubResource("CircleShape2D_mti6b")
+
+[node name="Trigger" type="Area2D" parent="." unique_id=108374666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=989593921]
+position = Vector2(0, 31.750652)
+scale = Vector2(1.0075322, 1.0113341)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]

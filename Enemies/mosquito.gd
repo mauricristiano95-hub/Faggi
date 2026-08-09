@@ -13,9 +13,6 @@ func _physics_process(delta: float) -> void:
 	position.x = (sin(2*PI*rot*0.5))*AMPLITUDE*2 + start_pos.x
 	if rot > 2: rot = 0
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
-		var backlash_direction = sign(position-body.position)
-		body.velocity.x = -backlash_direction.x*1000
-		body.velocity.y = -200
-		body.get_node('stats').set_health(body.get_node('stats').health-HIT_DAMAGE)
+		body.damage(HIT_DAMAGE, position)
