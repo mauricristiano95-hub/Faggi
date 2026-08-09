@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cs3tcymubxgch" path="res://Objects/candle.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cuhmyu2tbocpj" path="res://Enemies/mosquito.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://170olatexo37" path="res://Enemies/coconut.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://djqmifbsx1pdf" path="res://UI/ui.tscn" id="8_5vw27"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("3_lquwl")
@@ -183,4 +184,7 @@ tile_set = SubResource("TileSet_4kxuq")
 
 [node name="Coconut" parent="." unique_id=1340180307 instance=ExtResource("7_272bh")]
 position = Vector2(128, 48)
-contact_monitor = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=644921900]
+
+[node name="UI" parent="CanvasLayer" unique_id=1057514760 instance=ExtResource("8_5vw27")]
