@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dpvknav27q6km"]
+
+[ext_resource type="Script" uid="uid://cg1xc6q32q0so" path="res://UI/main_menu.gd" id="1_p8ccj"]
+
+[sub_resource type="Animation" id="Animation_tk8dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Quit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 264)]
+}
+
+[sub_resource type="Animation" id="Animation_p8ccj"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(-128, 200), Vector2(256, 218)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Quit:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(640, 264), Vector2(256, 272)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tk8dj"]
+_data = {
+&"RESET": SubResource("Animation_tk8dj"),
+&"intro": SubResource("Animation_p8ccj")
+}
+
+[node name="Control" type="Control" unique_id=1241665985]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8ccj")
+
+[node name="Start" type="Button" parent="." unique_id=278524694]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 63.999878
+offset_bottom = 3.9997559
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="Quit" type="Button" parent="." unique_id=1029370129]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 24.0
+offset_right = 63.999573
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=358593715]
+libraries/ = SubResource("AnimationLibrary_tk8dj")
+autoplay = &"intro"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
