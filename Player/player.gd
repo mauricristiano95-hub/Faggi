@@ -7,6 +7,10 @@ extends CharacterBody2D
 @export var MAX_SPEED = 2
 @export var JUMP_MULTIPLIER = 3
 @export var WALL_FRICTION = 7
+@export var DISABLED_INPUT = false
+
+var input_vector = Vector2.ZERO
+var input_override = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,11 +26,14 @@ func _ready() -> void:
 	WALL_FRICTION = WALL_FRICTION*params_multiplier
 
 func movement_input():
-	var input_vector = Vector2.ZERO
-	input_vector = Vector2(
-		int(Input.is_action_pressed('RIGHT'))-int(Input.is_action_pressed('LEFT')),
-		-int(Input.is_action_just_pressed("JUMP"))
-	)
+	input_vector = Vector2.ZERO
+	if DISABLED_INPUT == false:
+		input_vector = Vector2(
+			int(Input.is_action_pressed('RIGHT'))-int(Input.is_action_pressed('LEFT')),
+			-int(Input.is_action_just_pressed("JUMP"))
+		)
+	else:
+		input_vector = input_override
 	return input_vector
 
 func damage(hit_damage: float, enemy_pos: Vector2):
