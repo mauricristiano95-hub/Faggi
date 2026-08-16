@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d2fy2tuvmrtrn"]
+
+[ext_resource type="Script" uid="uid://bg542h7em88le" path="res://UI/dialogue.gd" id="1_f8kjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q4yj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.23753929, 0.23753911, 0.237539, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 3
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_mti6b"]
+Panel/styles/panel = SubResource("StyleBoxFlat_7q4yj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7q4yj"]
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" type="Control" unique_id=1705638590]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 120.0
+offset_bottom = 120.0
+grow_vertical = 2
+script = ExtResource("1_f8kjv")
+
+[node name="ColorRect" type="Panel" parent="." unique_id=1988914801]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 120.0
+theme = SubResource("Theme_mti6b")
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=474280695]
+custom_maximum_size = Vector2(610, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.067
+anchor_right = 0.975
+anchor_bottom = 0.933
+offset_left = 8.32
+offset_top = -0.03999996
+offset_right = 2.0
+offset_bottom = -3.9600067
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Integer fringilla imperdiet dapibus. 
+Morbi rutrum dui sit amet auctor mollis. 
+Aliquam erat volutpat. Maecenas tristique iaculis dui. Phasellus ut enim posuere, luctus dui eu, dignissim erat. Morbi iaculis mauris posuere mauris dapibus, blandit sodales ante ullamcorper. Donec porttitor, quam in tempus aliquam, nibh lacus pharetra magna, vel pretium tellus libero ultrices arcu. Sed euismod enim consectetur ante pharetra, ut ultricies tellus sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et ultricies mauris. Nulla vitae orci in nibh tempus ultricies. Pellentesque vitae suscipit nulla. Cras tincidunt condimentum nisi."
+label_settings = SubResource("LabelSettings_7q4yj")
+autowrap_mode = 2
