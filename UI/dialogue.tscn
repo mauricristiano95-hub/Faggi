@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2fy2tuvmrtrn"]
 
 [ext_resource type="Script" uid="uid://bg542h7em88le" path="res://UI/dialogue.gd" id="1_f8kjv"]
+[ext_resource type="Texture2D" uid="uid://k4ghwq7bi058" path="res://Assets/ui/press_A.png" id="2_347mh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q4yj"]
 content_margin_left = 0.0
@@ -25,6 +26,47 @@ Panel/styles/panel = SubResource("StyleBoxFlat_7q4yj")
 [sub_resource type="LabelSettings" id="LabelSettings_7q4yj"]
 font_size = 22
 font_color = Color(0, 0, 0, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+stacked_shadow_0/outline_size = 5
+
+[sub_resource type="Animation" id="Animation_6k0i6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m5l3s"]
+resource_name = "press_a_button"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7v0fb"]
+_data = {
+&"RESET": SubResource("Animation_6k0i6"),
+&"press_a_button": SubResource("Animation_m5l3s")
+}
 
 [node name="Dialogue" type="Control" unique_id=1705638590]
 layout_mode = 3
@@ -42,8 +84,16 @@ offset_right = 640.0
 offset_bottom = 120.0
 theme = SubResource("Theme_mti6b")
 
+[node name="Node2D" type="Node2D" parent="ColorRect" unique_id=318671393]
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/Node2D" unique_id=3885594]
+position = Vector2(616, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("2_347mh")
+hframes = 2
+
 [node name="Label" type="Label" parent="ColorRect" unique_id=474280695]
-custom_maximum_size = Vector2(610, 100)
+custom_maximum_size = Vector2(592, 100)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.012
@@ -52,7 +102,7 @@ anchor_right = 0.975
 anchor_bottom = 0.933
 offset_left = 8.32
 offset_top = -0.03999996
-offset_right = 2.0
+offset_right = -16.0
 offset_bottom = -3.9600067
 grow_horizontal = 2
 grow_vertical = 2
@@ -62,3 +112,10 @@ Morbi rutrum dui sit amet auctor mollis.
 Aliquam erat volutpat. Maecenas tristique iaculis dui. Phasellus ut enim posuere, luctus dui eu, dignissim erat. Morbi iaculis mauris posuere mauris dapibus, blandit sodales ante ullamcorper. Donec porttitor, quam in tempus aliquam, nibh lacus pharetra magna, vel pretium tellus libero ultrices arcu. Sed euismod enim consectetur ante pharetra, ut ultricies tellus sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et ultricies mauris. Nulla vitae orci in nibh tempus ultricies. Pellentesque vitae suscipit nulla. Cras tincidunt condimentum nisi."
 label_settings = SubResource("LabelSettings_7q4yj")
 autowrap_mode = 2
+visible_characters_behavior = 1
+text_direction = 1
+language = "it_IT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=893466304]
+libraries/ = SubResource("AnimationLibrary_7v0fb")
+autoplay = &"press_a_button"

@@ -2,6 +2,8 @@ extends Node2D
 
 var OFFSET = Vector2(30,-5)
 
+var main_scene = preload("res://main.tscn").instantiate()
+
 func _ready() -> void:
 	
 	# Disable player input and prepare black rect for fade-in-out
@@ -30,7 +32,11 @@ func scene_out():
 	
 	# Move the player
 	$kira.follow_player = true
-
+	
+func go_to_next_scene():
+	get_tree().root.add_child(main_scene)
+	get_tree().root.remove_child($".")
+	queue_free()
 
 func _on_dialogue_dialog_finished() -> void:
 	var tween = create_tween()
@@ -38,3 +44,4 @@ func _on_dialogue_dialog_finished() -> void:
 	tween.tween_callback(scene_out)
 	tween.tween_property($Player, "input_override:x", 1, 1.0)
 	tween.tween_property($CanvasLayer/ColorRect, "color:a", 1, 1.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_callback(go_to_next_scene)
