@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		$ColorRect/Node2D/Sprite2D.visible = true
 	
 	# Dialogue paging
-	if Input.is_action_just_pressed("ui_accept") and $ColorRect/Label.visible_ratio == 1.0: 
+	if Input.is_action_just_pressed("JUMP") and $ColorRect/Label.visible_ratio == 1.0: 
 		if i < len(text_lines)-1:
 			i+=1
 			$ColorRect/Label.text = text_lines[i]

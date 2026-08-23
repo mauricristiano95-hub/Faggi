@@ -7,7 +7,7 @@ func _ready() -> void:
 	gravity_scale = 0
 
 
-func _on_trigger_body_entered(body: Node2D) -> void:
+func _on_trigger_body_entered(_body: Node2D) -> void:
 	gravity_scale = 1
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

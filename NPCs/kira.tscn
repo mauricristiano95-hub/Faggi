@@ -1,12 +1,48 @@
 [gd_scene format=3 uid="uid://c3de6qt44g3h8"]
 
 [ext_resource type="Script" uid="uid://3vtim3dgohyc" path="res://NPCs/kira.gd" id="1_ywosr"]
+[ext_resource type="Texture2D" uid="uid://cu51okgaiincv" path="res://NPCs/kira.png" id="2_lxmvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1bc"]
 size = Vector2(16, 16)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4kxuq"]
-size = Vector2(16, 16)
+[sub_resource type="Animation" id="Animation_pgfse"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p3w6g"]
+resource_name = "kira_anim"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.40000004, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yxkm"]
+_data = {
+&"RESET": SubResource("Animation_pgfse"),
+&"kira_anim": SubResource("Animation_p3w6g")
+}
 
 [node name="kira" type="CharacterBody2D" unique_id=612997603]
 collision_layer = 4
@@ -18,4 +54,10 @@ HORIZONTAL_FLOAT_AMPLITUDE = 10
 shape = SubResource("RectangleShape2D_mm1bc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1778213043]
-texture = SubResource("PlaceholderTexture2D_4kxuq")
+texture = ExtResource("2_lxmvm")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=935400548]
+libraries/ = SubResource("AnimationLibrary_6yxkm")
+autoplay = &"kira_anim"
+speed_scale = 0.7

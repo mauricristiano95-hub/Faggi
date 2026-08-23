@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 500
+@export var SPEED = 450
 @export var HORIZONTAL_FLOAT_AMPLITUDE = 1
 @export var VERTICAL_FLOAT_AMPLITUDE = 5
-@export var HORIZONTAL_OFFSET = 12
+@export var HORIZONTAL_OFFSET = 20
 @export var VERTICAL_OFFSET = 0
 @export var follow_player = true # it needs a 2D node called "kira_pos" to move properly for custom movement
 
@@ -35,3 +35,9 @@ func _physics_process(delta: float) -> void:
 	var kira_mov = (position - pos_player + OFFSET)*SPEED
 	velocity = -kira_mov*delta
 	move_and_slide()
+	
+	# Kira Sprite direction
+	if bias <= 0:
+		$Sprite2D.flip_h = true 
+	else: 
+		$Sprite2D.flip_h = false
