@@ -1,9 +1,9 @@
 extends Node
 
-@export var max_health = 3
-@export var max_candles = 28
-@onready var health = max_health
-@onready var candles = 0
+var max_health = 0
+var max_candles = 0
+var health = 0
+var candles = 0
 
 signal no_health
 signal full_candles
@@ -35,7 +35,7 @@ func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and health > 0:
+	if Input.is_action_just_pressed("ui_cancel") and health > 0 and candles < max_candles:
 		emit_signal("pause")
 		if get_tree().paused:
 			get_tree().paused = false

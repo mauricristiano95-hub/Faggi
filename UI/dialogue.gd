@@ -9,11 +9,13 @@ var i = 0
 signal dialog_finished
 
 func _ready() -> void:
-	var text = FileAccess.open(text_file_path,FileAccess.READ)
+	set_dialogue_text(text_file_path)
+
+func set_dialogue_text(dialog_text_file_path):
+	var text = FileAccess.open(dialog_text_file_path,FileAccess.READ)
 	text_lines = text.get_as_text().split("\n\n")
 	$ColorRect/Label.visible_characters = 0
 	$ColorRect/Label.text = text_lines[i]
-	
 	
 func _process(delta: float) -> void:
 	

@@ -1,16 +1,5 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Inizio livello.
 
-Integer fringilla imperdiet dapibus.
-
-Morbi rutrum dui sit amet auctor mollis. Aliquam erat volutpat.
-
-Maecenas tristique iaculis dui. Phasellus ut enim posuere, luctus dui eu, dignissim erat.
-Morbi iaculis mauris posuere mauris dapibus, blandit sodales ante ullamcorper.
-
-Donec porttitor, quam in tempus aliquam, nibh lacus pharetra magna, vel pretium tellus libero ultrices arcu.
-Sed euismod enim consectetur ante pharetra, ut ultricies tellus sodales.
-
-Interdum et malesuada fames ac ante ipsum primis in faucibus. In et ultricies mauris.
-Nulla vitae orci in nibh tempus ultricies. Pellentesque vitae suscipit nulla.
+Cisao.
 
 Cras tincidunt condimentum nisi.

@@ -25,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		if get_parent().find_child('kira_pos') != null:
 			pos_player = get_parent().find_child('kira_pos').get('position')
-		bias=0
+			if abs(velocity.x) > 20:
+				bias=sign(velocity.x)
 
 	rot += 1
 	OFFSET.x = sin(2*PI*rot*0.01)*HORIZONTAL_FLOAT_AMPLITUDE + HORIZONTAL_OFFSET*bias
