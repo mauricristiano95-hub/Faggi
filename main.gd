@@ -6,6 +6,8 @@ var endlevel_scene = preload("res://outro.tscn").instantiate()
 @export var level_max_health = 3
 
 func level_complete():
+	# Get last player movement
+	$Player.animation(Vector2.ZERO)
 	var tween = create_tween()
 	$Player.DISABLED_INPUT = true
 	tween.tween_callback($CanvasLayer/UI.set_level_complete)

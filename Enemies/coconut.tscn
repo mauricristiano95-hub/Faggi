@@ -14,7 +14,7 @@ radius = 3.5
 radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(32, 79.59655)
+size = Vector2(32, 52.89914)
 
 [node name="Coconut" type="RigidBody2D" unique_id=1169915649]
 collision_layer = 8
@@ -42,7 +42,7 @@ shape = SubResource("CircleShape2D_mti6b")
 [node name="Trigger" type="Area2D" parent="." unique_id=108374666]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=989593921]
-position = Vector2(0, 31.750652)
+position = Vector2(0, 18.250652)
 scale = Vector2(1.0075322, 1.0113341)
 shape = SubResource("RectangleShape2D_4kxuq")
 

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://djmcjcj7arogr"]
+
+[ext_resource type="Texture2D" uid="uid://b1hqa5sjja5q1" path="res://Assets/objects/palm.png" id="1_dkuqa"]
+[ext_resource type="PackedScene" uid="uid://170olatexo37" path="res://Enemies/coconut.tscn" id="2_ivrd1"]
+
+[sub_resource type="Animation" id="Animation_efxa6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePalm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dg77c"]
+resource_name = "palm_anim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePalm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.49999997, 0.6666666, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.01745329251994329, -0.01745329251994329]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdy4"]
+_data = {
+&"RESET": SubResource("Animation_efxa6"),
+&"palm_anim": SubResource("Animation_dg77c")
+}
+
+[node name="Palm" type="Node2D" unique_id=1607740521]
+
+[node name="SpritePalm" type="Sprite2D" parent="." unique_id=1384087015]
+position = Vector2(0.20654297, -0.0002670288)
+skew = -0.0025816327
+texture = ExtResource("1_dkuqa")
+offset = Vector2(0, -40)
+hframes = 4
+
+[node name="Coconut" parent="." unique_id=1169915649 instance=ExtResource("2_ivrd1")]
+position = Vector2(0.20654297, -48.000267)
+center_of_mass = Vector2(0.1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1011017326]
+libraries/ = SubResource("AnimationLibrary_ycdy4")
+autoplay = &"palm_anim"

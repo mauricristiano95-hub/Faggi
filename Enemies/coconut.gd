@@ -7,8 +7,13 @@ func _ready() -> void:
 	gravity_scale = 0
 
 
-func _on_trigger_body_entered(_body: Node2D) -> void:
+func _on_trigger_body_entered(body: Node2D) -> void:
+	var main_scene = body.get_parent()
+	call_deferred("reparent",main_scene)
 	gravity_scale = 1
+	$Trigger.set_collision_layer_value(1, false)
+	$Trigger.set_collision_mask_value(1, false)
+
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == 'Player' and is_falling:
