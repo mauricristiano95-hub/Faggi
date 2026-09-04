@@ -5,9 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cvlo00yjtjm1x" path="res://Player/player.tscn" id="2_hiixy"]
 [ext_resource type="PackedScene" uid="uid://c3de6qt44g3h8" path="res://NPCs/kira.tscn" id="3_yvxpr"]
 [ext_resource type="Texture2D" uid="uid://d24rlc5ecr4o4" path="res://icon.svg" id="5_yvxpr"]
+[ext_resource type="FontFile" uid="uid://bel6kmuec7o4g" path="res://UI/font.ttf" id="6_1l407"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvxpr"]
+font = ExtResource("6_1l407")
 font_size = 31
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Outro" type="Node2D" unique_id=645951839]
 script = ExtResource("1_hiixy")
@@ -53,15 +57,16 @@ color = Color(0, 0, 0, 1)
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1001385523]
 offset_left = 216.0
 offset_top = 488.0
-offset_right = 422.0
+offset_right = 428.0
 offset_bottom = 538.0
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_1l407")
+theme_override_font_sizes/font_size = 15
 text = "Open Present"
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=182607683]
-offset_left = 200.0
+offset_left = 120.0
 offset_top = -48.0
-offset_right = 441.0
+offset_right = 585.0
 offset_bottom = -4.0
 text = "Happy Birthday!"
 label_settings = SubResource("LabelSettings_yvxpr")

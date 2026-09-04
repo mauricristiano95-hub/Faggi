@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bg542h7em88le" path="res://UI/dialogue.gd" id="1_f8kjv"]
 [ext_resource type="Texture2D" uid="uid://k4ghwq7bi058" path="res://Assets/ui/press_A.png" id="2_347mh"]
+[ext_resource type="FontFile" uid="uid://bel6kmuec7o4g" path="res://UI/font.ttf" id="3_6k0i6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q4yj"]
 content_margin_left = 0.0
-content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(1, 1, 1, 1)
@@ -18,13 +18,14 @@ corner_radius_top_left = 20
 corner_radius_top_right = 3
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 3
-corner_detail = 5
+corner_detail = 9
 
 [sub_resource type="Theme" id="Theme_mti6b"]
 Panel/styles/panel = SubResource("StyleBoxFlat_7q4yj")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7q4yj"]
-font_size = 22
+font = ExtResource("3_6k0i6")
+font_size = 23
 font_color = Color(0, 0, 0, 1)
 stacked_shadow_count = 1
 stacked_shadow_0/color = Color(0.7919991, 0.79199916, 0.7919991, 1)
@@ -101,9 +102,9 @@ anchor_top = 0.067
 anchor_right = 0.975
 anchor_bottom = 0.933
 offset_left = 8.32
-offset_top = -0.03999996
+offset_top = 7.96
 offset_right = -16.0
-offset_bottom = -3.9600067
+offset_bottom = 4.0399933
 grow_horizontal = 2
 grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

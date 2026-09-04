@@ -1,12 +1,13 @@
 extends Control
 
 var DEFAULT_DEATH_TEXT = "You are too scared..."
+@onready var life_heart_max_size = $life_heart.size
 
 func set_health(value):
-	$Health.text = "Health: " + str(value)
+	$life_heart.size.x = (value / PlayerStats.max_health)*life_heart_max_size.x
 
 func set_candles(value):
-	$Candles.text = "Candles: " + str(value)
+	$Candles.text = "x" + str(value) + "/" + str(PlayerStats.max_candles)
 
 func set_dead_text(value):
 	$DeathScreen/Label.text = value
@@ -28,8 +29,6 @@ func set_level_start():
 	tween.tween_property($Fade, "modulate:a", 0, 1.0).set_trans(Tween.TRANS_CUBIC)
 
 func _ready() -> void:
-	set_health(PlayerStats.health)
-	set_candles(PlayerStats.candles)
 	$DeathScreen.visible = false
 	$PauseScreen.visible = false
 	$Fade.visible = true

@@ -97,9 +97,9 @@ func animation(input_mov):
 	if input_mov != Vector2.ZERO and not is_on_wall_only():
 		animationTree.set("parameters/Idle/blend_position", input_mov.x)
 		animationTree.set("parameters/Run/blend_position", Vector2(input_mov.x, -input_mov.y))
+		animationTree.set("parameters/Climb/blend_position", input_mov.x)
 		animationState.travel("Run")
 	elif is_on_wall_only():
-		animationTree.set("parameters/Climb/blend_position", input_mov.x)
 		animationState.travel("Climb")
 	elif not DISABLED_INPUT:
 		animationState.travel("Idle")

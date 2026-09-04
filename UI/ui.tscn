@@ -1,14 +1,27 @@
 [gd_scene format=3 uid="uid://djqmifbsx1pdf"]
 
 [ext_resource type="Script" uid="uid://bl4ihdbvshw58" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="Texture2D" uid="uid://c4qusgipwar36" path="res://Assets/ui/life.png" id="2_dajm1"]
+[ext_resource type="FontFile" uid="uid://bel6kmuec7o4g" path="res://UI/font.ttf" id="2_e6gg6"]
+[ext_resource type="Texture2D" uid="uid://dwfl83btdh513" path="res://Assets/objects/candle.png" id="4_hat8c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
+line_spacing = 2.0
+font = ExtResource("2_e6gg6")
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fwl4"]
+font = ExtResource("2_e6gg6")
 font_size = 24
 
 [sub_resource type="Theme" id="Theme_e6gg6"]
-default_font_size = 22
+default_font = ExtResource("2_e6gg6")
+default_font_size = 16
+
+[sub_resource type="Theme" id="Theme_kek77"]
+default_font = ExtResource("2_e6gg6")
+default_font_size = 16
 
 [node name="UI" type="Control" unique_id=1057514760]
 layout_mode = 3
@@ -20,19 +33,46 @@ grow_vertical = 2
 script = ExtResource("1_2fwl4")
 
 [node name="Health" type="Label" parent="." unique_id=362925471]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Health: xx"
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 31.0
+text = "Health"
 label_settings = SubResource("LabelSettings_4kxuq")
 
 [node name="Candles" type="Label" parent="." unique_id=1326158655]
 layout_mode = 0
-offset_top = 23.0
-offset_right = 88.0
-offset_bottom = 46.0
-text = "Candles: xx"
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 252.0
+offset_bottom = 87.0
+text = "x28/28"
 label_settings = SubResource("LabelSettings_4kxuq")
+
+[node name="life_heart" type="TextureRect" parent="." unique_id=392322333]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 55.999992
+offset_bottom = 32.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(0, 8)
+texture = ExtResource("2_dajm1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="candle" type="TextureRect" parent="." unique_id=1811910439]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_hat8c")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Fade" type="Control" parent="." unique_id=1932231555]
 visible = false
@@ -65,10 +105,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="DeathScreen" unique_id=1016065791]
 layout_mode = 0
-offset_left = 200.0
+offset_left = 56.0
 offset_top = 176.0
-offset_right = 436.0
-offset_bottom = 210.0
+offset_right = 584.0
+offset_bottom = 208.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "You are too scared..."
 label_settings = SubResource("LabelSettings_2fwl4")
@@ -76,11 +116,12 @@ horizontal_alignment = 1
 
 [node name="RETRY" type="Button" parent="DeathScreen" unique_id=1719269413]
 layout_mode = 0
-offset_left = 272.0
+offset_left = 256.0
 offset_top = 224.0
-offset_right = 368.0
+offset_right = 384.0
 offset_bottom = 263.0
 theme = SubResource("Theme_e6gg6")
+theme_override_colors/font_color = Color(0.14909747, 1, 0.9539252, 1)
 text = "	Retry	"
 autowrap_trim_flags = 0
 expand_icon = true
@@ -91,6 +132,8 @@ offset_left = 272.0
 offset_top = 280.0
 offset_right = 368.0
 offset_bottom = 311.0
+theme = SubResource("Theme_kek77")
+theme_override_colors/font_color = Color(0.8832303, 0.9243574, 0, 1)
 text = "Quit"
 
 [node name="PauseScreen" type="Control" parent="." unique_id=880822477]
